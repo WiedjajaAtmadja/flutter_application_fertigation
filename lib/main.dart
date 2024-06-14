@@ -157,6 +157,9 @@ class _NewSchedulePageState extends State<NewSchedulePage> {
                     child: Text(value),
                   );
                 }).toList(),
+                onChanged: (value) {
+                  // Add your logic here
+                },
                 onSaved: (value) => area = value!,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
