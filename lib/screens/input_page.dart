@@ -19,7 +19,8 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Schedule'),
+        title: Text('Add Schedule',
+            style: Theme.of(context).textTheme.headlineSmall),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -33,7 +34,7 @@ class _InputPageState extends State<InputPage> {
                 items: [1, 2, 3].map((area) {
                   return DropdownMenuItem(
                     value: area,
-                    child: Text('Area $area'),
+                    child: Text('Area $area', style: TextStyle(fontSize: 20)),
                   );
                 }).toList(),
                 onChanged: (value) {
@@ -63,6 +64,7 @@ class _InputPageState extends State<InputPage> {
                   }
                   return null;
                 },
+                style: TextStyle(fontSize: 20),
               ),
               TextFormField(
                 decoration: InputDecoration(labelText: 'Minute'),
@@ -79,6 +81,7 @@ class _InputPageState extends State<InputPage> {
                   }
                   return null;
                 },
+                style: TextStyle(fontSize: 20),
               ),
               TextFormField(
                 decoration: InputDecoration(labelText: 'Duration (minutes)'),
@@ -92,6 +95,7 @@ class _InputPageState extends State<InputPage> {
                   }
                   return null;
                 },
+                style: TextStyle(fontSize: 20),
               ),
               SizedBox(height: 20),
               ElevatedButton(
@@ -109,7 +113,7 @@ class _InputPageState extends State<InputPage> {
                     Navigator.pop(context);
                   }
                 },
-                child: Text('Add Schedule'),
+                child: Text('Add Schedule', style: TextStyle(fontSize: 20)),
               ),
             ],
           ),

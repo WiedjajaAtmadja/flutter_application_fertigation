@@ -12,13 +12,45 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => ScheduleProvider(),
+      create: (_) => ScheduleProvider(),
       child: MaterialApp(
-        title: 'Scheduler App',
+        title: 'Scheduler',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
+          primaryColor: Colors.green,
+          colorScheme: ColorScheme.fromSwatch(
+            primarySwatch: Colors.green,
+          ),
+          appBarTheme: AppBarTheme(
+            backgroundColor: Colors.green,
+          ),
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+            backgroundColor: Colors.green,
+          ),
+          textTheme: TextTheme(
+            headlineSmall: TextStyle(
+                fontSize: 28, fontWeight: FontWeight.bold, color: Colors.black),
+            bodyMedium: TextStyle(fontSize: 20, color: Colors.black),
+          ),
         ),
+        darkTheme: ThemeData(
+          primaryColor: Colors.green,
+          colorScheme: ColorScheme.fromSwatch(
+            primarySwatch: Colors.green,
+            brightness: Brightness.dark,
+          ),
+          appBarTheme: AppBarTheme(
+            backgroundColor: Colors.green,
+          ),
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+            backgroundColor: Colors.green,
+          ),
+          textTheme: TextTheme(
+            headlineSmall: TextStyle(
+                fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white),
+            bodyMedium: TextStyle(fontSize: 20, color: Colors.white),
+          ),
+        ),
+        themeMode: ThemeMode.system,
         home: HomePage(),
         routes: {
           '/input': (context) => InputPage(),
