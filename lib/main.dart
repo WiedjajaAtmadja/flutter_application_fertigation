@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
           floatingActionButtonTheme: FloatingActionButtonThemeData(
             backgroundColor: Colors.green,
           ),
+          scaffoldBackgroundColor: Colors.white,
           textTheme: TextTheme(
             headlineSmall: TextStyle(
                 fontSize: 28, fontWeight: FontWeight.bold, color: Colors.black),
@@ -44,6 +45,7 @@ class MyApp extends StatelessWidget {
           floatingActionButtonTheme: FloatingActionButtonThemeData(
             backgroundColor: Colors.green,
           ),
+          scaffoldBackgroundColor: Colors.black,
           textTheme: TextTheme(
             headlineSmall: TextStyle(
                 fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white),
