@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'providers/schedule_provider.dart';
+import 'providers/bluetooth_provider.dart'; // Add this line
 import 'screens/home_page.dart';
 import 'screens/input_page.dart';
 
@@ -11,8 +12,12 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => ScheduleProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ScheduleProvider()),
+        ChangeNotifierProvider(
+            create: (_) => BluetoothProvider()), // Add this line
+      ],
       child: MaterialApp(
         title: 'Scheduler',
         theme: ThemeData(

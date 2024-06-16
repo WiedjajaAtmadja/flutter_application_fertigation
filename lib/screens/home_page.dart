@@ -1,16 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/schedule_provider.dart';
+import '../providers/bluetooth_provider.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheduleProvider = Provider.of<ScheduleProvider>(context);
+    final bluetoothProvider = Provider.of<BluetoothProvider>(context);
 
     return Scaffold(
       appBar: AppBar(
         title:
             Text('Scheduler', style: Theme.of(context).textTheme.headlineSmall),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.bluetooth),
+            onPressed: () async {
+              bluetoothProvider.startScan();
+              await showModalBottomSheet(
+                context: context,
+                builder: (context) {
+                  return Consumer<BluetoothProvider>(
+                    builder: (context, bluetoothProvider, child) {
+                      return ListView(
+                        children: bluetoothProvider.devices.map((device) {
+                          return ListTile(
+                            title: Text(device.name),
+                            onTap: () {
+                              bluetoothProvider.connect(device);
+                              Navigator.pop(context);
+                            },
+                          );
+                        }).toList(),
+                      );
+                    },
+                  );
+                },
+              );
+              bluetoothProvider.stopScan();
+            },
+          ),
+        ],
       ),
       body: ListView.builder(
         itemCount: 3, // There are 3 areas
